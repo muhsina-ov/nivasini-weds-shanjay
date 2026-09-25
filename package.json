@@ -16,7 +16,5 @@
     "typescript": "latest",
     "vite": "latest"
   },
-  "devDependencies": {
-    "wrangler": "^4.140.0"
-  }
+  "devDependencies": {}
 }
