@@ -31,15 +31,18 @@ function Opening({onOpen, onStartAudio}) {
     if (isPlaying) return
     setIsPlaying(true)
     if (videoRef.current) {
-      videoRef.current.currentTime = 0
-      videoRef.current.muted = true
+      try {
+        videoRef.current.muted = true
+      } catch (e) {}
       const playPromise = videoRef.current.play()
       if (playPromise !== undefined) {
         playPromise.catch((err) => {
           console.warn('Playback attempt:', err)
-          if (videoRef.current) {
-            videoRef.current.play().catch(() => onOpen())
-          }
+          setTimeout(() => {
+            if (videoRef.current) {
+              videoRef.current.play().catch(() => onOpen())
+            }
+          }, 300)
         })
       }
     }
