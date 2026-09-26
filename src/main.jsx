@@ -4,7 +4,7 @@ import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } fr
 import './styles.css'
 import './cinematic.css'
 
-const WEDDING_DATE = new Date('2026-11-15T19:05:00+08:00')
+const WEDDING_DATE = new Date('2026-11-15T18:30:00+08:00')
 
 function Lotus({small=false}) {
   return <span className={`lotus ${small?'lotus--small':''}`} aria-hidden="true">{Array.from({length:8},(_,i)=><i key={i} style={{'--i':i}} />)}<b /></span>
@@ -88,9 +88,9 @@ function Opening({onOpen, onStartAudio}) {
             <div className="opening__copy">
               <p className="opening__eyebrow">The wedding celebration of</p>
               <h2>
-                <span>Shanjay</span>
+                <span className="cursive-name">Shanjay</span>
                 <i>&</i>
-                <span>Nivasini</span>
+                <span className="cursive-name">Nivasini</span>
               </h2>
               <p className="opening__date">15 · November · 2026</p>
             </div>
@@ -155,26 +155,26 @@ function FloatingLayer(){
 
 const events=[
   {
-    name: 'Guest Welcome & Gathering',
+    name: 'Guest & Welcome',
     date: '15 Nov 2026',
-    time: '7:05 PM',
+    time: '6:30 PM onwards',
     place: 'Sri Sithi Vinayagar Temple',
     mark: 'wedding',
-    detail: 'Warm welcome of families, esteemed relatives, and friends to the holy celebration.'
+    detail: 'Warm welcome of families, esteemed relatives, and friends to the celebration.'
   },
   {
     name: 'Wedding Ceremony & Muhurtham',
     date: '15 Nov 2026',
-    time: '7:30 PM',
-    place: 'Temple Sanctum / Main Hall',
+    time: '7:05 PM – 9:00 PM',
+    place: 'Temple Main Hall, Level 1',
     mark: 'wedding',
-    detail: 'Auspicious wedding vows, exchange of garlands, and sacred rituals solemnizing the marriage.'
+    detail: 'Sacred wedding rituals, exchange of garlands, and auspicious muhurtham solemnizing the marriage.'
   },
   {
-    name: 'Dinner & Blessings',
+    name: 'Dinner',
     date: '15 Nov 2026',
-    time: '8:15 PM – 9:00 PM',
-    place: 'Temple Dining Hall',
+    time: '7:30 PM onwards',
+    place: 'Temple Dining Hall, Ground Floor',
     mark: 'reception',
     detail: 'Celebrate with the newlyweds over a traditional festive dinner and shower them with love and blessings.'
   }
@@ -189,7 +189,7 @@ function CalendarButton(){
       'BEGIN:VEVENT',
       'UID:shanjay-nivasini-20261115@invitestory.in',
       'DTSTAMP:20260925T120000Z',
-      'DTSTART:20261115T110500Z',
+      'DTSTART:20261115T103000Z',
       'DTEND:20261115T130000Z',
       'SUMMARY:Shanjay & Nivasini Wedding Ceremony',
       'LOCATION:Sri Sithi Vinayagar Temple, Petaling Jaya',
@@ -313,9 +313,9 @@ function App(){
       <div className="hero__shade" />
       <motion.div className="hero__copy" style={reduce?{}:{y:textY}} initial={{opacity:0}} animate={{opacity:opened?1:0}} transition={{delay:.25,duration:.9}}>
         <p className="eyebrow">Together with our families</p>
-        <h1><span>Shanjay</span><i>&</i><span>Nivasini</span></h1>
+        <h1><span className="cursive-name">Shanjay</span><i>&</i><span className="cursive-name">Nivasini</span></h1>
         <div className="date-rule"><b />15 · 11 · 2026<b /></div>
-        <p className="hero__note">Sunday, 15 November 2026 · 7:05 PM – 9:00 PM<br/>Sri Sithi Vinayagar Temple, Petaling Jaya</p>
+        <p className="hero__note">Sunday, 15 November 2026 · 6:30 PM onwards<br/>Sri Sithi Vinayagar Temple, Petaling Jaya</p>
       </motion.div>
       {opened&&<div className="petal-field" aria-hidden="true">{petals.map(p=><i key={p.id} style={{left:`${p.left}%`,animationDelay:`${p.delay}s`,'--r':`${p.rot}deg`}} />)}</div>}
     </section>
@@ -334,7 +334,7 @@ function App(){
         <p>Out of all the people, all the places, and all the little moments life could have given us, somehow, we found each other.</p>
         <p>And now, after every chapter we've shared, we're writing our favorite one yet — forever.</p>
         <p>With our hearts full of love, we invite you to celebrate this beautiful beginning with us.</p>
-        <div className="signature">Shanjay <i>&</i> Nivasini</div>
+        <div className="signature"><span className="cursive-name">Shanjay</span> <i>&</i> <span className="cursive-name">Nivasini</span></div>
       </Reveal>
       <Reveal className="story__portrait">
         <img loading="lazy" src="https://media.invitestory.in/lotus-leaf-bengaluru/assets/aarav-ananya-story.webp" alt="Shanjay and Nivasini"/>
@@ -357,7 +357,7 @@ function App(){
           <p className="kicker">The Venue</p>
           <h2>Sri Sithi Vinayagar Temple</h2>
           <p>Petaling Jaya<br/>Selangor, Malaysia</p>
-          <p style={{fontSize:'13px',color:'#556926',margin:'6px 0 16px',fontWeight:'500'}}>7:05 PM – 9:00 PM · Sunday, 15 November 2026</p>
+          <p style={{fontSize:'13px',color:'#556926',margin:'6px 0 16px',fontWeight:'500'}}>6:30 PM onwards · Sunday, 15 November 2026</p>
           <a className="button" href="https://maps.app.goo.gl/Erx2Wtbe35XP8NPBA" target="_blank" rel="noreferrer">Open in Google Maps <span>↗</span></a>
           <CalendarButton/>
         </div>
@@ -365,12 +365,12 @@ function App(){
     </section>
 
     <footer>
-      <img loading="lazy" src="https://media.invitestory.in/lotus-leaf-bengaluru/assets/aarav-ananya-hero.webp" alt="Shanjay and Nivasini" />
+      <img loading="lazy" src="/assets/footer-photo.webp" onError={(e) => { e.currentTarget.src = "/assets/aarav-ananya-story.webp" }} alt="Shanjay and Nivasini" />
       <div className="footer__shade"/>
       <Reveal className="footer__copy">
         <p className="script">With love</p>
-        <h2>Shanjay <i>&</i> Nivasini</h2>
-        <p>We cannot wait to celebrate this beautiful beginning with you.<br/>15 November 2026 · Sri Sithi Vinayagar Temple</p>
+        <h2><span className="cursive-name">Shanjay</span> <i>&</i> <span className="cursive-name">Nivasini</span></h2>
+        <p>We cannot wait to celebrate this beautiful beginning with you.</p>
         <Lotus/>
       </Reveal>
       <a href="https://www.instagram.com/invitestory.in/" target="_blank" rel="noreferrer" style={{position:'relative',zIndex:2,display:'block',textAlign:'center',fontSize:'8px',textTransform:'uppercase',letterSpacing:'.18em',color:'rgba(255,248,223,.35)',textDecoration:'none',paddingBottom:'16px'}}>Follow @invitestory.in on Instagram</a>
