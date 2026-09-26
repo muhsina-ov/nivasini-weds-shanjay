@@ -340,7 +340,7 @@ function App(){
         <div className="signature"><span className="cursive-name">Shanjay</span> <i>&</i> <span className="cursive-name">Nivasini</span></div>
       </Reveal>
       <Reveal className="story__portrait">
-        <img loading="lazy" src="https://media.invitestory.in/lotus-leaf-bengaluru/assets/aarav-ananya-story.webp" alt="Shanjay and Nivasini"/>
+        <img loading="lazy" src="/assets/ns2.webp" onError={(e) => { e.currentTarget.src = "/assets/ns2.jpg" }} alt="Shanjay and Nivasini"/>
         <span>Writing our favorite chapter<br/>yet — forever</span>
       </Reveal>
     </section>
@@ -373,7 +373,7 @@ function App(){
       <Reveal className="footer__copy">
         <p className="script">With love</p>
         <h2><span className="cursive-name">Shanjay</span> <i>&</i> <span className="cursive-name">Nivasini</span></h2>
-        <p>We cannot wait to celebrate this beautiful beginning with you.</p>
+        <p>We can't wait to celebrate<br/>this beautiful beginning with you.</p>
         <Lotus/>
       </Reveal>
       <a href="https://www.instagram.com/invitestory.in/" target="_blank" rel="noreferrer" style={{position:'relative',zIndex:2,display:'block',textAlign:'center',fontSize:'8px',textTransform:'uppercase',letterSpacing:'.18em',color:'rgba(255,248,223,.35)',textDecoration:'none',paddingBottom:'16px'}}>Follow @invitestory.in on Instagram</a>
