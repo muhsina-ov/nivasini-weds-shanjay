@@ -56,7 +56,7 @@ function Opening({onOpen, onStartAudio}) {
       <video
         ref={videoRef}
         className="opening__video"
-        src="https://media.invitestory.in/lotus-leaf-bengaluru/assets/sm.mp4"
+        src="/assets/sm.mp4"
         playsInline
         muted
         autoPlay={false}
@@ -68,8 +68,8 @@ function Opening({onOpen, onStartAudio}) {
         }}
       />
       <img
-        src="https://media.invitestory.in/lotus-leaf-bengaluru/assets/flow-first-frame.webp"
-        alt="A flower-filled wedding pavilion with closed green silk curtains"
+        src="/assets/flow-first-frame.webp"
+        alt="A flower-filled wedding pavilion with closed red silk curtains"
         style={{
           opacity: isPlaying ? 0 : 1,
           transition: 'opacity 0.4s ease',
@@ -309,7 +309,7 @@ function App(){
     <AnimatePresence>{!opened && <Opening onOpen={handleOpen} onStartAudio={startAudio} />}</AnimatePresence>
 
     <section className="hero" ref={hero}>
-      <motion.img style={reduce?{}:{y:artY}} className="hero__art" src="https://media.invitestory.in/lotus-leaf-bengaluru/assets/aarav-ananya-hero.webp" alt="Wedding illustration of Shanjay and Nivasini" />
+      <motion.img style={reduce?{}:{y:artY}} className="hero__art" src="/assets/ns.webp" onError={(e)=>{e.currentTarget.src="/assets/ns.jpg"}} alt="Wedding portrait of Shanjay and Nivasini" />
       <div className="hero__shade" />
       <motion.div className="hero__copy" style={reduce?{}:{y:textY}} initial={{opacity:0}} animate={{opacity:opened?1:0}} transition={{delay:.25,duration:.9}}>
         <p className="eyebrow">Together with our families</p>
@@ -365,7 +365,7 @@ function App(){
     </section>
 
     <footer>
-      <img loading="lazy" src="/assets/footer-photo.webp" onError={(e) => { e.currentTarget.src = "/assets/aarav-ananya-story.webp" }} alt="Shanjay and Nivasini" />
+      <img loading="lazy" src="/assets/ns1.webp" onError={(e) => { e.currentTarget.src = "/assets/ns1.jpg" }} alt="Shanjay and Nivasini" />
       <div className="footer__shade"/>
       <Reveal className="footer__copy">
         <p className="script">With love</p>
