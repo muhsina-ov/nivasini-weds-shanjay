@@ -4,7 +4,7 @@ import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } fr
 import './styles.css'
 import './cinematic.css'
 
-const WEDDING_DATE = new Date('2026-11-15T18:30:00+08:00')
+const WEDDING_DATE = new Date('2026-11-15T19:00:00+08:00')
 
 function Lotus({small=false}) {
   return <span className={`lotus ${small?'lotus--small':''}`} aria-hidden="true">{Array.from({length:8},(_,i)=><i key={i} style={{'--i':i}} />)}<b /></span>
@@ -160,7 +160,7 @@ const events=[
   {
     name: 'Guest & Welcome',
     date: '15 Nov 2026',
-    time: '6:30 PM onwards',
+    time: '7:00 PM onwards',
     place: 'Sri Sithi Vinayagar Temple',
     mark: 'wedding',
     detail: 'Warm welcome of families, esteemed relatives, and friends to the celebration.'
@@ -176,7 +176,7 @@ const events=[
   {
     name: 'Dinner',
     date: '15 Nov 2026',
-    time: '7:30 PM onwards',
+    time: '8:00 PM onwards',
     place: 'Temple Dining Hall, Ground Floor',
     mark: 'reception',
     detail: 'Celebrate with the newlyweds over a traditional festive dinner and shower them with love and blessings.'
@@ -192,8 +192,8 @@ function CalendarButton(){
       'BEGIN:VEVENT',
       'UID:shanjay-nivasini-20261115@invitestory.in',
       'DTSTAMP:20260925T120000Z',
-      'DTSTART:20261115T103000Z',
-      'DTEND:20261115T130000Z',
+      'DTSTART:20261115T110000Z',
+      'DTEND:20261115T140000Z',
       'SUMMARY:Shanjay & Nivasini Wedding Ceremony',
       'LOCATION:Sri Sithi Vinayagar Temple, Petaling Jaya',
       'DESCRIPTION:Join Shanjay and Nivasini to celebrate their wedding beginning.',
@@ -312,13 +312,13 @@ function App(){
     <AnimatePresence>{!opened && <Opening onOpen={handleOpen} onStartAudio={startAudio} />}</AnimatePresence>
 
     <section className="hero" ref={hero}>
-      <motion.img style={reduce?{}:{y:artY}} className="hero__art" src="/assets/ns.webp" onError={(e)=>{e.currentTarget.src="/assets/ns.jpg"}} alt="Wedding portrait of Shanjay and Nivasini" />
+      <motion.img style={reduce?{}:{y:artY}} className="hero__art" src="/assets/ns4.png" onError={(e)=>{e.currentTarget.src="/ns4.png"}} alt="Wedding portrait of Shanjay and Nivasini" />
       <div className="hero__shade" />
       <motion.div className="hero__copy" style={reduce?{}:{y:textY}} initial={{opacity:0}} animate={{opacity:opened?1:0}} transition={{delay:.25,duration:.9}}>
         <p className="eyebrow">Together with our families</p>
         <h1><span className="cursive-name">Shanjay</span><i>&</i><span className="cursive-name">Nivasini</span></h1>
         <div className="date-rule"><b />15 · 11 · 2026<b /></div>
-        <p className="hero__note">Sunday, 15 November 2026 · 6:30 PM onwards<br/>Sri Sithi Vinayagar Temple, Petaling Jaya</p>
+        <p className="hero__note">Sunday, 15 November 2026 · 7:00 PM onwards<br/>Sri Sithi Vinayagar Temple, Petaling Jaya</p>
       </motion.div>
       {opened&&<div className="petal-field" aria-hidden="true">{petals.map(p=><i key={p.id} style={{left:`${p.left}%`,animationDelay:`${p.delay}s`,'--r':`${p.rot}deg`}} />)}</div>}
     </section>
@@ -360,7 +360,7 @@ function App(){
           <p className="kicker">The Venue</p>
           <h2>Sri Sithi Vinayagar Temple</h2>
           <p>Petaling Jaya<br/>Selangor, Malaysia</p>
-          <p style={{fontSize:'13px',color:'#556926',margin:'6px 0 16px',fontWeight:'500'}}>6:30 PM onwards · Sunday, 15 November 2026</p>
+          <p style={{fontSize:'13px',color:'#556926',margin:'6px 0 16px',fontWeight:'500'}}>7:00 PM onwards · Sunday, 15 November 2026</p>
           <a className="button" href="https://maps.app.goo.gl/Erx2Wtbe35XP8NPBA" target="_blank" rel="noreferrer">Open in Google Maps <span>↗</span></a>
           <CalendarButton/>
         </div>
