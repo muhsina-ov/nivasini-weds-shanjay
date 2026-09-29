@@ -291,6 +291,8 @@ function App(){
 
   return <main>
     <audio ref={audioRef} loop preload="auto" playsInline>
+      <source src="/bgm1.mp3" type="audio/mpeg" />
+      <source src="/bgm1.mpeg" type="audio/mpeg" />
       <source src="/bgm.mp3" type="audio/mpeg" />
       <source src="/bgm.mpeg" type="audio/mpeg" />
       <source src="/music.mp3" type="audio/mpeg" />
